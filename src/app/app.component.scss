@@ -2,3 +2,17 @@
     width: 100%;
     text-align: center;
 }
+
+.btn-box {
+    width: 85%;
+    margin: 0 auto 10px;
+    border: 1px solid dodgerblue;
+
+    .btn {
+        border: 1px solid #ddd;
+        outline: none;
+        border-radius: 3px;
+        background: #ddd;
+        margin: 0 8px;
+    }
+}

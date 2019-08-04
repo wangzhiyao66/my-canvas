@@ -89,6 +89,36 @@ export class MyCanvas2Component implements OnInit {
     this.ctx.lineWidth = 1;
     this.ctx.strokeStyle = 'white';
     this.ctx.stroke();
+
+    // 绘制不规则图形 #93a3e4 #8ee4d9
+
+    this.ctx.beginPath();
+    this.ctx.moveTo(155, 160);
+    this.ctx.strokeStyle = 'red';
+    this.ctx.quadraticCurveTo(110, 200, 155, 240);
+    this.ctx.quadraticCurveTo(200, 345, 235, 240);
+    this.ctx.quadraticCurveTo(310, 200, 235, 160);
+    this.ctx.quadraticCurveTo(200, 65, 155, 160);
+    this.ctx.fillStyle = 'rgba(32,68,113, 0.5)';
+    this.ctx.fill();
+    this.ctx.strokeStyle = '#8ee4d9';
+    this.ctx.lineWidth = 3;
+    this.ctx.stroke();
+    // 绘制参考点
+    // this.move(155, 160);
+    // this.move(165, 160);
+
+  }
+  // 绘制参考点
+  move(x: number, y: number) {
+    // 绘制上面曲线的控制点和控制线，控制点坐标为两直线的交点(75,50)
+    this.ctx.beginPath();
+    this.ctx.arc(x, y, 4, 0, 2 * Math.PI);
+    this.ctx.strokeStyle = 'white';
+    this.ctx.lineWidth = 2;
+    this.ctx.fillStyle = 'pink';
+    this.ctx.fill();
+    this.ctx.stroke();
   }
 
 }

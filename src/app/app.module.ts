@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MyCanvasComponent } from './my-canvas/my-canvas.component';
 import { MyCanvas2Component } from './my-canvas2/my-canvas2.component';
-
+import { FormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
@@ -14,6 +14,7 @@ import { MyCanvas2Component } from './my-canvas2/my-canvas2.component';
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     AppRoutingModule
   ],
   providers: [],
