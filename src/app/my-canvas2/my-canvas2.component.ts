@@ -91,7 +91,7 @@ export class MyCanvas2Component implements OnInit {
     this.ctx.stroke();
 
     // 绘制不规则图形 #93a3e4 #8ee4d9
-
+    // 第一种算法
     this.ctx.beginPath();
     this.ctx.moveTo(155, 160);
     this.ctx.strokeStyle = 'red';
@@ -101,12 +101,30 @@ export class MyCanvas2Component implements OnInit {
     this.ctx.quadraticCurveTo(200, 65, 155, 160);
     this.ctx.fillStyle = 'rgba(32,68,113, 0.5)';
     this.ctx.fill();
-    this.ctx.strokeStyle = '#8ee4d9';
+    this.ctx.strokeStyle = 'red';
     this.ctx.lineWidth = 3;
     this.ctx.stroke();
     // 绘制参考点
-    // this.move(155, 160);
-    // this.move(165, 160);
+
+    // 第二种算法
+    // this.ctx.beginPath();
+    // this.ctx.moveTo(200, 125);
+    // this.ctx.strokeStyle = 'red';
+    // this.ctx.quadraticCurveTo(160, 160, 120, 200);
+    // this.ctx.quadraticCurveTo(120, 275, 200, 275);
+    // this.ctx.quadraticCurveTo(280, 275, 280, 200);
+    // this.ctx.quadraticCurveTo(275, 125, 200, 125);
+    // this.ctx.fillStyle = 'rgba(32,68,113, 0.5)';
+    // this.ctx.fill();
+    // this.ctx.strokeStyle = '#8ee4d9';
+    // this.ctx.lineWidth = 3;
+    // this.ctx.stroke();
+
+    // this.move(200, 125);
+    // this.move(120, 200);
+    // this.move(200, 275);
+    // this.move(280, 200);
+
 
   }
   // 绘制参考点

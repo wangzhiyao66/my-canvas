@@ -1,0 +1,510 @@
+<section id="predictionHistory-body" style="display: block;">
+  <header>
+    <section class="reset">
+      <span class="icon"></span>
+      <span class="text">重置</span>
+    </section>
+    <section class="export">
+      <span class="icon"></span>
+      <span class="text">导出</span>
+    </section>
+  </header>
+  <main id="predictionHistoryBody">
+    <section class="content">
+      <section class="top clearfix">
+        <div class="operation-prodLine">
+          <span>运作产线</span>
+          <div class="ipt-content">
+            <div class="btn-content" (click)='showCheckBox($event)'>
+              <span class="text">全部</span>
+              <i class="icon"></i>
+            </div>
+            <div class="btn-edit" style="position: relative;display:none;">
+              <ng-container *ngTemplateOutlet="multipleBoxBody; context: operationProdLine">
+              </ng-container>
+            </div>
+          </div>
+        </div>
+        <div class="plan-broadHeading">
+          <span>计划大类</span>
+          <div class="ipt-content">
+            <div class="btn-content" (click)='showCheckBox($event)'>
+              <span class="text">全部</span>
+              <i class="icon"></i>
+            </div>
+            <div class="btn-edit" style="position: relative;display:none;">
+              <ng-container *ngTemplateOutlet="multipleBoxBody; context: planBroadHeading">
+              </ng-container>
+            </div>
+          </div>
+        </div>
+        <div class="material-control">
+          <span>物控</span>
+          <div class="ipt-content">
+            <div class="btn-content" (click)='showCheckBox($event)'>
+              <span class="text">全部</span>
+              <i class="icon"></i>
+            </div>
+            <div class="btn-edit" style="position: relative;display:none;">
+              <ng-container *ngTemplateOutlet="multipleBoxBody; context: materialControl">
+              </ng-container>
+            </div>
+          </div>
+        </div>
+        <div class="state">
+          <span>状态</span>
+          <div class="ipt-content">
+            <div class="btn-content" (click)='showCheckBox($event)'>
+              <span class="text">全部</span>
+              <i class="icon"></i>
+            </div>
+            <div class="btn-edit" style="position: relative;display:none;">
+              <ng-container *ngTemplateOutlet="multipleBoxBody; context: state">
+              </ng-container>
+            </div>
+          </div>
+        </div>
+        <div class="date-start margin0">
+          <span>日期</span>
+          <div class="ipt-content">
+            <div class="btn-content padding0">
+              <!-- <nz-demo-date-picker-basic [date]='"2019-09-09"' (getDatePickerDate)='getDatePickerDate($event)'
+                [type]='"startDate"'>
+              </nz-demo-date-picker-basic>-->
+              <!-- <span>2018-05-05</span> -->
+              <!-- <input type="date" [(ngModel)]="date.startDate" name="" id=""> -->
+            </div>
+          </div>
+        </div>
+        <div class="date-end">
+          <span class="time-split">至</span>
+          <div class="ipt-content margin0">
+            <div class="btn-content padding0">
+              <!-- <input type="date" [(ngModel)]="date.endDate" name="" id=""> -->
+              <!-- <nz-demo-date-picker-basic [date]='"2019-09-09"' (getDatePickerDate)='getDatePickerDate($event)'
+                [type]='"endDate"'>
+              </nz-demo-date-picker-basic> -->
+              <!-- <span>2019-05-05</span> -->
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="filter-bar">
+        <section class="groupCode">
+          <span class="title">替换组名称</span>
+          <section class="ipt">
+            <input type="text" class="groupCode-ipt" placeholder="请输入替换组编号">
+            <section class="float-layer" style="display:none;">
+              <input type="text" class="float-layer-ipt">
+              <ul class="lenovo-list">
+                <li (click)="getContent($event)">
+                  <span>asdfasdfasdf</span>
+                </li>
+                <li>
+                  <span>asdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdf</span>
+                </li>
+                <li>
+                  <span>asdfasdfasdf</span>
+                </li>
+                <li>
+                  <span>asdfasdfasdf</span>
+                </li>
+                <li>
+                  <span>asdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdf</span>
+                </li>
+              </ul>
+            </section>
+            <div class="error" style="display: none;">
+              <span class="icon"></span>
+              <span class="text">编号不存在</span>
+            </div>
+          </section>
+        </section>
+        <section class="groupName">
+          <span class="title">替换组名称</span>
+          <section class="ipt">
+            <input type="text" class="groupName-ipt" placeholder="请输入替换组名称">
+            <section class="float-layer" style="display: none;">
+              <input type="text" class="float-layer-ipt">
+              <ul class="lenovo-list">
+                <li>
+                  <span>asdfasdfasdf</span>
+                </li>
+                <li>
+                  <span>asdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdf</span>
+                </li>
+                <li>
+                  <span>asdfasdfasdf</span>
+                </li>
+                <li>
+                  <span>asdfasdfasdf</span>
+                </li>
+                <li>
+                  <span>asdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdf</span>
+                </li>
+              </ul>
+            </section>
+            <div class="error" style="display: none;">
+              <span class="icon"></span>
+              <span class="text">编号不存在</span>
+            </div>
+          </section>
+        </section>
+        <section class="sparePartsCode margin0">
+          <span class="title">备件编号</span>
+          <section class="ipt">
+            <input type="text" class="sparePartsCode-ipt" placeholder="请输入备件编码">
+            <section class="float-layer" style="display: none;">
+              <input type="text" class="float-layer-ipt">
+              <ul class="lenovo-list">
+                <li>
+                  <span>asdfasdfasdf</span>
+                </li>
+                <li>
+                  <span>asdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdf</span>
+                </li>
+                <li>
+                  <span>asdfasdfasdf</span>
+                </li>
+                <li>
+                  <span>asdfasdfasdf</span>
+                </li>
+                <li>
+                  <span>asdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdf</span>
+                </li>
+              </ul>
+            </section>
+            <div class="error" style="display: none;">
+              <span class="icon"></span>
+              <span class="text">编号不存在</span>
+            </div>
+          </section>
+
+        </section>
+        <button class="screening">筛选</button>
+      </section>
+      <section class="table-content">
+        <div class="table-responsive">
+          <table class="table" id="predictionHistoryTableContent">
+            <thead>
+              <tr>
+                <td style="width: 79.5px;">
+                  <span>
+                    选项
+                  </span>
+                </td>
+                <td>
+                  <span>
+                    预测时间
+                  </span>
+                </td>
+                <td>
+                  <span>
+                    运作产线
+                  </span>
+                </td>
+                <td>
+                  <span>
+                    计划大类
+                  </span>
+                </td>
+                <td>
+                  <span>
+                    替换组编号
+                  </span>
+                </td>
+                <td>
+                  <span>
+                    替换组名称
+                  </span>
+                </td>
+                <td>
+                  <span>
+                    需求预测总量
+                  </span>
+                </td>
+                <td>
+                  <span>
+                    时间跨度
+                  </span>
+                </td>
+                <td>
+                  <span>
+                    物控
+                  </span>
+                </td>
+                <td>
+                  <span>
+                    操作员
+                  </span>
+                </td>
+                <td>
+                  <span>
+                    操作
+                  </span>
+                </td>
+                <td>
+                  <span>
+                    状态
+                  </span>
+                </td>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="td0">
+                  <span class="checkbox option">
+                    <span class="num">01</span>
+                    <span class="box">
+                      <label for="option01">
+                        <input id="option01" type="checkbox">
+                        <span class="simulate-ipt"></span>
+                      </label>
+                    </span>
+                  </span>
+                </td>
+                <td class="td1">
+                  <span>
+                    2018-01-02
+                  </span>
+                </td>
+                <td class="td2">
+                  <span>
+                    笔记本
+                  </span>
+                </td>
+                <td class="td3">
+                  <span>
+                    笔记本
+                  </span>
+                </td>
+                <td class="td4">
+                  <span>
+                    1324453B2423
+                  </span>
+                </td>
+                <td class="td5">
+                  <span>
+                    500G+8G 7mm SSh
+                  </span>
+                </td>
+                <td class="td6">
+                  <span>
+                    187689090
+                  </span>
+                </td>
+                <td class="td7">
+                  <span>
+                    19<span class="MicrosoftYaHeiUI">月</span>
+                  </span>
+                </td>
+                <td class="td8">
+                  <span>
+                    王倩倩倩
+                  </span>
+                </td>
+                <td class="td9">
+                  <span>
+                    王倩倩倩
+                  </span>
+                </td>
+                <td class="td10">
+                  <span>
+                    <button class="preview">预览</button>
+                    <button class="modified">修改</button>
+                    <button *ngIf="true" class="pigeonhole">归档</button>
+                    <button *ngIf='false' class="cancel-pigeonhole">取消归档</button>
+                  </span>
+                </td>
+                <td class="td11">
+                  <span>
+                    <span class="confirm">确</span>
+                  </span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <span class="checkbox option">
+                    <span class="num">01</span>
+                    <span class="box">
+                      <label for="option02">
+                        <input id="option02" type="checkbox">
+                        <span class="simulate-ipt"></span>
+                      </label>
+                    </span>
+                  </span>
+                </td>
+                <td>
+                  <span>
+                    阿斯顿发
+                  </span>
+                </td>
+                <td>
+                  <span>
+                    阿斯顿发
+                  </span>
+                </td>
+                <td>
+                  <span>
+                    阿斯顿发
+                  </span>
+                </td>
+                <td>
+                  <span>
+                    阿斯顿发
+                  </span>
+                </td>
+                <td>
+                  <span>
+                    阿斯顿发
+                  </span>
+                </td>
+                <td>
+                  <span>
+                    阿斯顿发
+                  </span>
+                </td>
+                <td>
+                  <span>
+                    阿斯顿发
+                  </span>
+                </td>
+                <td>
+                  <span>
+                    阿斯顿发
+                  </span>
+                </td>
+                <td>
+                  <span>
+                    阿斯顿发
+                  </span>
+                </td>
+                <td>
+                  <span>
+                    阿斯顿发
+                  </span>
+                </td>
+                <td>
+                  <span>
+                    阿斯顿发
+                  </span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <span class="checkbox option">
+                    <span class="num">01</span>
+                    <span class="box">
+                      <label for="option03">
+                        <input id="option03" type="checkbox">
+                        <span class="simulate-ipt"></span>
+                      </label>
+                    </span>
+                  </span>
+                </td>
+                <td>
+                  <span>
+                    阿斯顿发
+                  </span>
+                </td>
+                <td>
+                  <span>
+                    阿斯顿发
+                  </span>
+                </td>
+                <td>
+                  <span>
+                    阿斯顿发
+                  </span>
+                </td>
+                <td>
+                  <span>
+                    阿斯顿发
+                  </span>
+                </td>
+                <td>
+                  <span>
+                    阿斯顿发
+                  </span>
+                </td>
+                <td>
+                  <span>
+                    阿斯顿发
+                  </span>
+                </td>
+                <td>
+                  <span>
+                    阿斯顿发
+                  </span>
+                </td>
+                <td>
+                  <span>
+                    阿斯顿发
+                  </span>
+                </td>
+                <td>
+                  <span>
+                    阿斯顿发
+                  </span>
+                </td>
+                <td>
+                  <span>
+                    阿斯顿发
+                  </span>
+                </td>
+                <td>
+                  <span>
+                    阿斯顿发
+                  </span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+    </section>
+
+
+
+
+
+    <ng-template #multipleBoxBody let-text="text">
+      <section class="multiple-box-body">
+        <section class="search">
+          <span class="text" spellcheck='false' autofocus='autofocus' contenteditable="true"
+            (keydown)='cancelCode13($event)' (keyup)='cancelCode13($event)'>全部</span>
+          <i class="icon"></i>
+        </section>
+        <section class="search-box-content">
+          <section class="checkbox-content">
+            <ng-template ngFor let-item let-i=index [ngForOf]='multipleCheckboxContent'>
+              <div class="option">
+                <label for="optionId{{i}}{{text}}">
+                  <input [attr.id]='"optionId"+i+text' type="checkbox" />
+                  <span class="checkbox"></span>
+                  <span class="checkbox-text">{{item.content}}</span>
+                </label>
+              </div>
+            </ng-template>
+            <strong></strong>
+          </section>
+          <section class="footer">
+            <div class="checkbox-all">
+              <label for="predictionHistoryIpt{{text}}" class='margin0'>
+                <input [attr.id]='"predictionHistoryIpt"+text' type="checkbox">
+                <span class="checkbox"></span>
+                <span class='checkbox-text'>全部</span>
+              </label>
+            </div>
+            <span class="confirm" (click)="hideCheckBox($event)">
+              确定
+            </span>
+          </section>
+        </section>
+      </section>
+    </ng-template>
+
+    <ng-template #></ng-template>
+  </main>
+</section>

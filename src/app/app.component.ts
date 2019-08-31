@@ -10,5 +10,6 @@ export class AppComponent {
   btnlink = [
     { title: '饼状图', link: 'canvas' },
     { title: '自定义图形', link: 'canvas2' },
+    { title: 'dragdroptable', link: 'dragdroptable' },
   ];
 }
