@@ -6,11 +6,13 @@ import { AppComponent } from './app.component';
 import { MyCanvasComponent } from './my-canvas/my-canvas.component';
 import { MyCanvas2Component } from './my-canvas2/my-canvas2.component';
 import { FormsModule } from '@angular/forms';
+import { CountToComponent } from './count-to/count-to.component';
 @NgModule({
   declarations: [
     AppComponent,
     MyCanvasComponent,
-    MyCanvas2Component
+    MyCanvas2Component,
+    CountToComponent
   ],
   imports: [
     BrowserModule,
