@@ -1,9 +1,6 @@
-import { Component, OnInit, OnChanges, SimpleChanges, AfterViewInit } from '@angular/core';
-// import * as ns from 'CountUp';
-// import CountUp = require('CountUp');
-// import CountUp from 'countup';
+import { Component, OnInit, OnChanges, SimpleChanges, AfterViewInit, Input } from '@angular/core';
 import * as CountUp from 'countup';
-// declare var CountUp: any;
+
 
 @Component({
   selector: 'app-count-to',
@@ -13,7 +10,8 @@ import * as CountUp from 'countup';
 export class CountToComponent implements OnInit, OnChanges {
 
 
-  counter: any = null;
+  counter: any = null; // 用于实例化CountUp
+  @Input() endValue = 0;
   constructor() { }
 
   ngOnInit() {
@@ -22,7 +20,7 @@ export class CountToComponent implements OnInit, OnChanges {
 
 
   ngOnChanges(changes: SimpleChanges): void {
-
+    this.endValue !== 0 ? this.counter.update(1000) : this.counter.reset();
   }
 
   // 设置数据
@@ -34,9 +32,6 @@ export class CountToComponent implements OnInit, OnChanges {
       decimal: '.', // 整数和小数分割符号
     });
     this.counter.start(() => console.log('Complete!'));
-    // setTimeout(() => {
-    //   this.counter.update(1000);
-    // }, 15);
   }
 
 }
