@@ -11,5 +11,6 @@ export class AppComponent {
     { title: '饼状图', link: 'canvas' },
     { title: '自定义图形', link: 'canvas2' },
     { title: 'conuntUp', link: 'conuntUp' },
+    { title: 'ag-grid', link: 'ag-grid' },
   ];
 }

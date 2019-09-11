@@ -21,6 +21,8 @@
     "@angular/platform-browser": "~7.2.0",
     "@angular/platform-browser-dynamic": "~7.2.0",
     "@angular/router": "~7.2.0",
+    "ag-grid-angular": "^21.2.1",
+    "ag-grid-community": "^21.2.1",
     "core-js": "^2.5.4",
     "countup": "^1.8.2",
     "rxjs": "~6.3.3",

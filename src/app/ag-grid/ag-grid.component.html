@@ -1,0 +1,14 @@
+<p>
+  <a href="https://www.ag-grid.com/javascript-grid-resizing/" target="_blank"> ag-grid works! </a>
+</p>
+<ag-grid-angular
+    style="width: 500px; height: 500px;"
+    class="ag-theme-balham"
+    [rowData]="rowData"
+    [columnDefs]="columnDefs"
+    [defaultColDef]="defaultColDef"
+    [colResizeDefault]="colResizeDefault"
+    rowSelection="multiple"
+    (gridReady)="onGridReady($event)"
+    >
+</ag-grid-angular>

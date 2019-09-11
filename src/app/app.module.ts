@@ -7,16 +7,20 @@ import { MyCanvasComponent } from './my-canvas/my-canvas.component';
 import { MyCanvas2Component } from './my-canvas2/my-canvas2.component';
 import { FormsModule } from '@angular/forms';
 import { CountToComponent } from './count-to/count-to.component';
+import { AgGridModule } from 'ag-grid-angular';
+import { AgGridComponent } from './ag-grid/ag-grid.component';
 @NgModule({
   declarations: [
     AppComponent,
     MyCanvasComponent,
     MyCanvas2Component,
-    CountToComponent
+    CountToComponent,
+    AgGridComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
+    AgGridModule.withComponents([]),
     AppRoutingModule
   ],
   providers: [],
