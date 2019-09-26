@@ -10,6 +10,7 @@ import { CountToComponent } from './count-to/count-to.component';
 import { AgGridModule } from 'ag-grid-angular';
 import { AgGridComponent } from './ag-grid/ag-grid.component';
 import { DragdropTableComponent } from './dragdrop-table/dragdrop-table.component';
+import { ForkJoinComponent } from './fork-join/fork-join.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -17,7 +18,8 @@ import { DragdropTableComponent } from './dragdrop-table/dragdrop-table.componen
     MyCanvas2Component,
     CountToComponent,
     DragdropTableComponent,
-    AgGridComponent
+    AgGridComponent,
+    ForkJoinComponent
   ],
   imports: [
     BrowserModule,

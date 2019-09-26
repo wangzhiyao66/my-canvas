@@ -13,5 +13,6 @@ export class AppComponent {
     { title: 'dragdroptable', link: 'dragdroptable' },
     { title: 'conuntUp', link: 'conuntUp' },
     { title: 'ag-grid', link: 'ag-grid' },
+    { title: 'fork-join', link: 'fork-join' },
   ];
 }
