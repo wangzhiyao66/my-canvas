@@ -1,3 +1,57 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~ag-grid-community/dist/styles/ag-grid.css";
 @import "~ag-grid-community/dist/styles/ag-theme-balham.css";
+
+
+#predictionHistory-body {
+    .table-content {
+        .CRC {
+            z-index: 2;
+
+            .CRG {
+                margin-left: 0px;
+
+                .CRZ {
+                    width: 2px;
+                    margin-left: -1px;
+
+                    &::before {
+                        content: '';
+                        position: absolute;
+                        border: 10px solid #00B9FF;
+                        border-color: transparent #00B9FF transparent transparent;
+                        left: -24px;
+                        border-width: 5.5px 11px 5.5px 11px;
+                        top: 0;
+                    }
+
+                    &::after {
+                        content: '';
+                        position: absolute;
+                        border: 10px solid #00B9FF;
+                        border-color: transparent transparent transparent #00B9FF;
+                        right: -24px;
+                        border-width: 5.5px 11px 5.5px 11px;
+                        top: 0;
+                    }
+                }
+
+                .gripCRZ:hover {
+                    cursor: ew-resize;
+                    opacity: 1;
+                    background-color: #00B9FF;
+                    z-index: 2;
+                }
+            }
+
+            .dragging {
+                .CRZ {
+                    cursor: ew-resize;
+                    opacity: 1;
+                    background-color: #00B9FF;
+                    z-index: 2;
+                }
+            }
+        }
+    }
+}

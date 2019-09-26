@@ -1,8 +1,10 @@
 
 import { Component, OnInit, ViewChild, ChangeDetectorRef, HostListener, AfterViewInit } from '@angular/core';
 import { Router } from '@angular/router';
+// tslint:disable-next-line:one-variable-per-declaration
 declare const $: any, lenovoPublic;
 
+declare var tableResize: any;
 @Component({
   selector: 'app-dragdrop-table',
   templateUrl: './dragdrop-table.component.html',
@@ -54,43 +56,10 @@ export class DragdropTableComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit() {
-    this.initTableColresizable();
-
+    // 初始化 JQ22 的拖拽表格
+    tableResize.init();
   }
 
-  initTableColresizable() {
-    let isDraging = false;
-    const onSampleResized = function (e) {
-      isDraging = false;
-      const cRZAll = Array.from(document.querySelectorAll('.CRC .CRZ'));
-      cRZAll.map(x => x.classList.add('gripCRZ'));
-    };
-    const onDragResized = function (e) {
-      if (isDraging) {
-        return;
-      }
-      isDraging = true;
-      const cRZAll = Array.from(document.querySelectorAll('.CRC .CRZ'));
-      cRZAll.map(x => x.classList.remove('gripCRZ'));
-    };
-    $('table').colResizable({
-      hoverCursor: 'ew-resize', // 此属性可用于自定义当用户位于列锚点时将显示的光标。
-      dragCursor: 'ew-resize', // 定义用户调整列大小时将使用的游标
-      liveDrag: true, // 设置为true 时修改拖动时表格跟着动
-      gripInnerHtml: '<div class="grip"></div>',
-      draggingClass: 'dragging', // 此属性用作拖动时分配给列锚点的css类。它可用于视觉反馈目的。
-      onResize: onSampleResized, // 如果提供了回调函数，则在用户结束拖动修改前一个表格布局的列锚点时将触发该函数。回调函数可以通过参数检索的事件的currentTarget属性获取对更新表的引用
-      // partialRefresh: true, // 如果表位于updatePanel内或使用ajax进行任何其他类型的部分页面刷新，则此属性应设置为true。在部分部分刷新之前和之后，表的ID应该相同。
-      onDrag: onDragResized, // 如果启用了liveDrag，则在拖动列锚时会触发此事件。如果将表用作多范围滑块，则可能很有用。回调函数可以通过参数检索的事件的currentTarget属性获取对更新表的引用
-      // postbackSafe: true, // 此属性可用于指定在回发或浏览器刷新后手动选择的列宽必须保持不变
-      // minWidth: 80, // 此值指定列允许的最小宽度（以像素为单位）
-    });
-    setTimeout(() => {
-      const gripNext = Array.from(document.querySelectorAll('.CRC .grip+div'));
-      gripNext.map(x => x.classList.add('gripCRZ'));
-    }, 0);
-
-  }
 
   getDatePickerDate(param) {
     lenovoPublic.selfLog2(() => console.log(param));

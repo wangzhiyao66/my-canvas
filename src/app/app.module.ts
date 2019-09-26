@@ -9,12 +9,14 @@ import { FormsModule } from '@angular/forms';
 import { CountToComponent } from './count-to/count-to.component';
 import { AgGridModule } from 'ag-grid-angular';
 import { AgGridComponent } from './ag-grid/ag-grid.component';
+import { DragdropTableComponent } from './dragdrop-table/dragdrop-table.component';
 @NgModule({
   declarations: [
     AppComponent,
     MyCanvasComponent,
     MyCanvas2Component,
     CountToComponent,
+    DragdropTableComponent,
     AgGridComponent
   ],
   imports: [
