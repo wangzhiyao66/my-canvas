@@ -1,0 +1,24 @@
+<div style="width: 80%;float: left;">
+  <div id='myDrag'>
+  </div>
+</div>
+<div style="width: 20%;float: right;margin-top: 50px;">
+  <div>
+    <label>类型：</label>
+    <input type='text' disabled [(ngModel)]='nodeInfo.type'>
+  </div>
+  <div>
+    <p>月亮🌙</p>
+    <div>
+      <label>名称：</label>
+      <input type='text' [(ngModel)]='nodeInfo.name' (change)="changeText()">
+    </div>
+  </div>
+  <div>
+    <p>太阳☀</p>
+    <div>
+      <label>名称：</label>
+      <input type='text' [(ngModel)]='nodeInfo.name' (change)="changeText()">
+    </div>
+  </div>
+</div>

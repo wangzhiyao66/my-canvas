@@ -6,6 +6,7 @@ import { DragdropTableComponent } from './dragdrop-table/dragdrop-table.componen
 import { CountToComponent } from './count-to/count-to.component';
 import { AgGridComponent } from './ag-grid/ag-grid.component';
 import { ForkJoinComponent } from './fork-join/fork-join.component';
+import { GooflowComponent } from './gooflow/gooflow.component';
 
 const routes: Routes = [
   { path: '', component: MyCanvas2Component },
@@ -16,6 +17,7 @@ const routes: Routes = [
   { path: 'conuntUp', component: CountToComponent },
   { path: 'ag-grid', component: AgGridComponent },
   { path: 'fork-join', component: ForkJoinComponent },
+  { path: 'app-gooflow', component: GooflowComponent },
 ];
 
 @NgModule({

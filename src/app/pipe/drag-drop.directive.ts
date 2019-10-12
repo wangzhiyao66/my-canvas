@@ -41,11 +41,12 @@ export class DragDropDirective implements OnInit {
     }
   }
 
+  // tslint:disable-next-line: deprecation
   constructor(private el: ElementRef, private rr: Renderer) { }
 
   ngOnInit(): void {
     // throw new Error("Method not implemented.");
-    this.setColor(this.dragColor);
+    // this.setColor(this.dragColor);
   }
 
   private setColor(color) {

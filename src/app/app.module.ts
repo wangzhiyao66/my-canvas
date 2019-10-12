@@ -12,6 +12,7 @@ import { AgGridComponent } from './ag-grid/ag-grid.component';
 import { DragdropTableComponent } from './dragdrop-table/dragdrop-table.component';
 import { ForkJoinComponent } from './fork-join/fork-join.component';
 import { DragDropDirective } from './pipe/drag-drop.directive';
+import { GooflowComponent } from './gooflow/gooflow.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,7 +22,8 @@ import { DragDropDirective } from './pipe/drag-drop.directive';
     DragdropTableComponent,
     AgGridComponent,
     ForkJoinComponent,
-    DragDropDirective
+    DragDropDirective,
+    GooflowComponent
   ],
   imports: [
     BrowserModule,
