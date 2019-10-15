@@ -16,4 +16,6 @@ export class AppComponent {
     { title: 'fork-join', link: 'fork-join' },
     { title: 'app-gooflow', link: 'app-gooflow' },
   ];
+  // wotijiaoceshil ;
+  // 测试成功了
 }
