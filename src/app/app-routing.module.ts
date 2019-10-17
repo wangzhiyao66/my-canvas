@@ -7,6 +7,7 @@ import { CountToComponent } from './count-to/count-to.component';
 import { AgGridComponent } from './ag-grid/ag-grid.component';
 import { ForkJoinComponent } from './fork-join/fork-join.component';
 import { GooflowComponent } from './gooflow/gooflow.component';
+import { NgxQrcode2Component } from './ngx-qrcode2/ngx-qrcode2.component';
 
 const routes: Routes = [
   { path: '', component: MyCanvas2Component },
@@ -18,6 +19,7 @@ const routes: Routes = [
   { path: 'ag-grid', component: AgGridComponent },
   { path: 'fork-join', component: ForkJoinComponent },
   { path: 'app-gooflow', component: GooflowComponent },
+  { path: 'ngx-qrcode2', component: NgxQrcode2Component },
 ];
 
 @NgModule({

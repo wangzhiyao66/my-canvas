@@ -1,0 +1,14 @@
+<p>
+  ngx-qrcode2 works!
+</p>
+<p>
+  <input type="text" #Input2>
+  <button (click)="setvalue(Input2.value)">生成二维码</button>
+</p>
+<p>
+  <ngx-qrcode [qrc-value]="value" qrc-class="aclass" qrc-errorCorrectionLevel="L">
+  </ngx-qrcode>
+</p>
+<section>
+  <ngx-qrcode qrc-element-type="url" [qrc-value]="value" qrc-version="4"></ngx-qrcode>
+</section>

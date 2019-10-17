@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { NgxQRCodeModule } from 'ngx-qrcode2';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -13,6 +14,7 @@ import { DragdropTableComponent } from './dragdrop-table/dragdrop-table.componen
 import { ForkJoinComponent } from './fork-join/fork-join.component';
 import { DragDropDirective } from './pipe/drag-drop.directive';
 import { GooflowComponent } from './gooflow/gooflow.component';
+import { NgxQrcode2Component } from './ngx-qrcode2/ngx-qrcode2.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,11 +25,13 @@ import { GooflowComponent } from './gooflow/gooflow.component';
     AgGridComponent,
     ForkJoinComponent,
     DragDropDirective,
-    GooflowComponent
+    GooflowComponent,
+    NgxQrcode2Component
   ],
   imports: [
     BrowserModule,
     FormsModule,
+    NgxQRCodeModule,
     AgGridModule.withComponents([]),
     AppRoutingModule
   ],

@@ -15,6 +15,7 @@ export class AppComponent {
     { title: 'ag-grid', link: 'ag-grid' },
     { title: 'fork-join', link: 'fork-join' },
     { title: 'app-gooflow', link: 'app-gooflow' },
+    { title: 'ngx-qrcode2', link: 'ngx-qrcode2' },
   ];
   // wotijiaoceshil ;
   // 测试成功了
