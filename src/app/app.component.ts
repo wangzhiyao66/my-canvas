@@ -8,8 +8,8 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'myCanvas';
   btnlink = [
-    { title: '饼状图', link: 'canvas' },
-    { title: '自定义图形', link: 'canvas2' },
+    { title: 'js 饼状图', link: 'canvas' },
+    { title: 'js 自定义图形', link: 'canvas2' },
     { title: 'dragdroptable', link: 'dragdroptable' },
     { title: 'conuntUp', link: 'conuntUp' },
     { title: 'ag-grid', link: 'ag-grid' },
@@ -17,6 +17,4 @@ export class AppComponent {
     { title: 'app-gooflow', link: 'app-gooflow' },
     { title: 'ngx-qrcode2', link: 'ngx-qrcode2' },
   ];
-  // wotijiaoceshil ;
-  // 测试成功了
 }

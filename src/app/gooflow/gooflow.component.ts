@@ -25,12 +25,14 @@ export class GooflowComponent implements OnInit, AfterViewInit {
     width: 1200,
     height: 600,
     toolBtns: ['start round', 'end round', 'task round', 'node', 'chat', 'state', 'plug', 'join', 'fork', 'complex mix'],
-    haveHead: true,
+    haveHead: false,
     headBtns: ['new', 'open', 'save', 'undo', 'redo', 'reload'], // 如果haveHead=true，则定义HEAD区的按钮
     haveTool: true,
     haveGroup: true,
-    useOperStack: true
+    useOperStack: true,
+    editable: true
   };
+
   // /*remark工具栏提示*/
   // public remark = {
   //   moon: '月亮',
@@ -48,16 +50,20 @@ export class GooflowComponent implements OnInit, AfterViewInit {
   //   join: '联合结点'
   // };
 
-  // public top_remark = {
-  //   new: '新建',
-  //   open: '打开文件夹',
-  //   save: '保存',
-  //   undo: '后退',
-  //   redo: '前进',
-  //   reload: '刷新',
-  //   'print fa fa-print': '打印',
-  //   'exportImg fa fa-external-link': '导出'
-  // };
+
+  // tslint:disable-next-line:variable-name
+  public top_remark: any = {
+    new: '新建',
+    open: '打开文件夹',
+    save: '保存',
+    undo: '后退',
+    redo: '前进',
+    reload: '刷新',
+    // tslint:disable-next-line:quotemark
+    'print fa fa-print': '打印',
+    // tslint:disable-next-line:quotemark
+    'exportImg fa fa-external-link': '导出'
+  };
 
   public remark: any = {
     cursor: '选择指针',
@@ -130,23 +136,6 @@ export class GooflowComponent implements OnInit, AfterViewInit {
   //   that.gooflow.print(1);
   // };
 
-  // // 导出数据
-  // that.gooflow.onExportImgClick = function () {
-  //   that.gooflow.exportDiagram('资源编排');
-  // };
-  // const options = {
-  //   toolBtns: ['start round mix', 'end round', 'task', 'node', 'chat', 'state', 'plug', 'join', 'fork', 'complex mix'],
-  //   haveHead: true,
-  //   headLabel: true,
-  //   headBtns: ['new', 'open', 'save', 'undo', 'redo', 'reload'], // 如果haveHead=true，则定义HEAD区的按钮
-  //   haveTool: true,
-  //   haveGroup: true,
-  //   useOperStack: true
-  // };
-  // const demo = GooFlow.init('#myDrag', options);
-
-  // }
-
   // 修改节点名称
   // changeText(); {
   //   $('#' + this.curNodeId).find('td')[1].innerText = this.nodeInfo.name;
@@ -159,17 +148,95 @@ export class GooflowComponent implements OnInit, AfterViewInit {
   ngAfterViewInit(): void {
     this.demo = $.createGooFlow($('#demo'), this.property);
     this.demo.setNodeRemarks(this.remark);
-    this.demo.onItemDel = (id, type) => {
-      return confirm('确定要删除该单元吗?');
+    // this.demo.setHeadToolsRemarks(this.top_remark);
+
+    // 按钮点击的 时候
+    this.demo.onBtnSaveClick = () => {
+      alert('我点击的保存');
+      console.log(JSON.stringify(this.demo.exportData()));
     };
+
+    // 打开 按钮 点击 时候
+    this.demo.onBtnOpenClick = () => {
+      alert('我点击的打开 按钮');
+      console.log('我点击的打开 按钮');
+    };
+
+    // 删除 节点的时候
+    // this.demo.onItemDel = (id, type) => {
+    //   return confirm('确定要删除该单元吗?');
+    // };
+
+    // 默认加载 jsondata
     this.demo.loadData(this.jsondata);
+
+    // 新建流程
+    this.demo.onBtnNewClick = () => {
+      alert('我点击的新建流程');
+      this.demo.clearData();
+    };
+
+    // 刷新
+    this.demo.onFreshClick = () => {
+      alert('我点击的刷新');
+      location.reload();
+    };
+
+    // 被由不选中变成选中时，触发的方法。
+    // this.demo.onItemFocus = (id, model) => {
+    // alert('我点击的点击事件');
+    // console.log('data', id, model);
+    // };
+
+    // 被由选中变成不选中时，触发的方法。
+    this.demo.onItemBlur = (id, model) => {
+      // alert('被由选中变成不选中时');
+      // console.log('data', id, model);
+    };
+
+    // 图片点击事件 也就是节点
+    this.demo.$workArea.delegate('.GooFlow_item', 'click', { inthis: this.demo }, (e) => {
+      console.log('图片点击事件', e);
+    });
+
+    // 节点的双击事件
+    this.demo.$workArea.delegate('.ico + td', 'dblclick', { inthis: this.demo }, (e) => {
+      console.log('节点的双击事件', e);
+    });
+
+
+    // 被双击时，触发的方法。
+    this.demo.onItemDbClick = (id, type) => {
+      console.log('被双击时，触发的方法。');
+      console.log('被双击时，触发的方法。', id);
+      console.log('被双击时，触发的方法。', type);
+    };
+    // 某个元素（节点/连线）时触发的方法。
+    this.demo.onItemMark = (id, type) => {
+      alert('某个元素（节点/连线）时触发的方法');
+      console.log('被双击时，触发的方法。', id, type);
+    };
+
+    // 被重命名时，触发的方法。
+    this.demo.onItemRename = (id, name, type) => {
+      console.log('被重命名时', id, name, type);
+    };
+
+    // 被更改时，触发的方法。
+    this.demo.onMemoSetText = (id, type) => {
+      console.log('被更改时', id, type);
+    };
+
   }
 
   // tslint:disable-next-line:member-ordering
   public out;
+  // tslint:disable-next-line:member-ordering
+  public demoJson: any = '';
   Export() {
     const data = JSON.stringify(this.demo.exportData());
     console.log('data', data);
+    this.demoJson = data;
   }
 
 }
